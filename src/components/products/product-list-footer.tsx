@@ -9,12 +9,17 @@ import {
 import { formatProductCount } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
+const layoutClass = {
+  inline: "flex items-center justify-between gap-4 border-t bg-muted px-4 py-4",
+  stacked: "flex flex-col items-center gap-4 text-center",
+};
+
 type ProductListFooterProps = {
   page: number;
   pageCount: number;
   totalItems: number;
   onPageChange: (page: number) => void;
-  className?: string;
+  layout?: keyof typeof layoutClass;
 };
 
 const linkClass = "rounded-md text-foreground";
@@ -27,7 +32,7 @@ export function ProductListFooter({
   pageCount,
   totalItems,
   onPageChange,
-  className,
+  layout = "inline",
 }: ProductListFooterProps) {
   const isFirst = page <= 1;
   const isLast = page >= pageCount;
@@ -39,18 +44,13 @@ export function ProductListFooter({
   };
 
   return (
-    <div
-      className={cn(
-        "flex items-center justify-between gap-4 border-t bg-muted px-4 py-4 text-xs text-muted-foreground",
-        className,
-      )}
-    >
+    <div className={cn("text-xs text-muted-foreground", layoutClass[layout])}>
       <p>
         Strona {page} z {pageCount} · {formatProductCount(totalItems)}
       </p>
 
       <Pagination className="mx-0 w-auto">
-        <PaginationContent>
+        <PaginationContent className="gap-0.5">
           <PaginationItem>
             <PaginationPrevious
               href="#"

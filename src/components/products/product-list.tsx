@@ -9,15 +9,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { AvailabilityBadge } from "@/components/products/availability-badge";
+import { ProductCard } from "@/components/products/product-card";
 import { ProductListFooter } from "@/components/products/product-list-footer";
 import { formatPrice, formatStock } from "@/lib/format";
 import type { Product } from "@/lib/products";
@@ -69,36 +62,16 @@ export function ProductList({ products }: ProductListProps) {
         <ProductListFooter {...footerProps} />
       </div>
 
-      <ul className="flex flex-col gap-3 md:hidden">
-        {pageItems.map((product) => (
-          <li key={product.id}>
-            <Card size="sm" className="rounded-lg ring-border">
-              <CardHeader>
-                <CardTitle>{product.name}</CardTitle>
-                <CardDescription>{product.sku}</CardDescription>
-                <CardAction>
-                  <AvailabilityBadge available={product.available} />
-                </CardAction>
-              </CardHeader>
-              <CardContent>
-                <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2 rounded-md bg-muted p-3">
-                  <dt className="text-muted-foreground">Kategoria</dt>
-                  <dd className="text-right">{product.category}</dd>
-                  <dt className="text-muted-foreground">Cena brutto</dt>
-                  <dd className="text-right">
-                    {formatPrice(product.grossPrice, product.currency)}
-                  </dd>
-                  <dt className="text-muted-foreground">Magazyn</dt>
-                  <dd className="text-right">{formatStock(product.stock)}</dd>
-                </dl>
-              </CardContent>
-            </Card>
-          </li>
-        ))}
-        <li>
-          <ProductListFooter {...footerProps} className="rounded-lg border" />
-        </li>
-      </ul>
+      <div className="flex flex-col gap-6 md:hidden">
+        <ul className="flex flex-col gap-2">
+          {pageItems.map((product) => (
+            <li key={product.id}>
+              <ProductCard product={product} />
+            </li>
+          ))}
+        </ul>
+        <ProductListFooter {...footerProps} layout="stacked" />
+      </div>
     </>
   );
 }

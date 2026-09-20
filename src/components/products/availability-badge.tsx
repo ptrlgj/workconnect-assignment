@@ -12,7 +12,7 @@ export function AvailabilityBadge({ available, className, ...props }: Availabili
   return (
     <span
       className={cn(
-        "inline-flex h-5 w-fit shrink-0 items-center rounded-full px-2 text-xs font-medium whitespace-nowrap",
+        "inline-flex w-fit shrink-0 items-center rounded-full border border-transparent px-2 py-0.5 text-xs font-medium whitespace-nowrap",
         status.className,
         className,
       )}
