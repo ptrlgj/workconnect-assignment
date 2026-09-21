@@ -1,11 +1,11 @@
 import { createFormHook } from "@tanstack/react-form";
 
-import { CheckboxField } from "@/components/form/checkbox-field";
-import { ChipsField } from "@/components/form/chips-field";
-import { SelectField } from "@/components/form/select-field";
-import { SwitchField } from "@/components/form/switch-field";
-import { TextField } from "@/components/form/text-field";
-import { TextareaField } from "@/components/form/textarea-field";
+import { CheckboxField } from "@/components/form/CheckboxField";
+import { ChipsField } from "@/components/form/ChipsField";
+import { SelectField } from "@/components/form/SelectField";
+import { SwitchField } from "@/components/form/SwitchField";
+import { TextField } from "@/components/form/TextField";
+import { TextareaField } from "@/components/form/TextareaField";
 import { fieldContext, formContext } from "@/hooks/form-context";
 
 export const { useAppForm, withForm } = createFormHook({

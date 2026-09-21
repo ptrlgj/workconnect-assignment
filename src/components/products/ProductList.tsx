@@ -8,10 +8,10 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { AvailabilityBadge } from "@/components/products/availability-badge";
-import { ProductCard } from "@/components/products/product-card";
-import { ProductListFooter } from "@/components/products/product-list-footer";
+} from "@/components/ui/Table";
+import { AvailabilityBadge } from "@/components/products/AvailabilityBadge";
+import { ProductCard } from "@/components/products/ProductCard";
+import { ProductListFooter } from "@/components/products/ProductListFooter";
 import { formatPrice, formatStock } from "@/lib/format";
 import { clampPage, pageParser } from "@/lib/product-list-params";
 import type { Product } from "@/lib/products";

@@ -1,7 +1,7 @@
 "use client";
 
-import { FieldShell } from "@/components/form/field-shell";
-import { Input } from "@/components/ui/input";
+import { FieldShell } from "@/components/form/FieldShell";
+import { Input } from "@/components/ui/Input";
 import { useFieldContext } from "@/hooks/form-context";
 import { cn } from "@/lib/utils";
 

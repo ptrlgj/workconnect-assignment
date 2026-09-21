@@ -1,7 +1,7 @@
 "use client";
 
-import { FieldShell } from "@/components/form/field-shell";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { FieldShell } from "@/components/form/FieldShell";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/Select";
 import { useFieldContext } from "@/hooks/form-context";
 import type { IconSvgElement } from "@hugeicons/react";
 

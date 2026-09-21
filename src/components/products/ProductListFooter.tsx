@@ -8,7 +8,7 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from "@/components/ui/pagination";
+} from "@/components/ui/Pagination";
 import { formatProductCount } from "@/lib/format";
 import { serializeListParams } from "@/lib/product-list-params";
 import { cn } from "@/lib/utils";

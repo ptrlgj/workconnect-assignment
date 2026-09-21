@@ -5,7 +5,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { Add01Icon } from "@hugeicons/core-free-icons";
 import { toast } from "sonner";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 import {
   Dialog,
   DialogContent,
@@ -13,8 +13,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { ProductForm } from "@/components/products/product-form/product-form";
+} from "@/components/ui/Dialog";
+import { ProductForm } from "@/components/products/product-form/ProductForm";
 import type { ProductFormOutput } from "@/lib/product-form/schema";
 import { toProduct } from "@/lib/product-form/to-product";
 import type { Product } from "@/lib/products";

@@ -2,7 +2,7 @@
 
 import { useId } from "react";
 
-import { Field, FieldError, FieldLabel } from "@/components/ui/field";
+import { Field, FieldError, FieldLabel } from "@/components/ui/Field";
 import { useFieldContext } from "@/hooks/form-context";
 import { cn } from "@/lib/utils";
 

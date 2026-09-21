@@ -1,6 +1,6 @@
 "use client";
 
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/components/ui/Separator";
 import { withForm } from "@/hooks/form";
 import { productFormOptions } from "@/lib/product-form/form-options";
 

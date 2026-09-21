@@ -1,7 +1,7 @@
 "use client";
 
-import { FieldShell } from "@/components/form/field-shell";
-import { Textarea } from "@/components/ui/textarea";
+import { FieldShell } from "@/components/form/FieldShell";
+import { Textarea } from "@/components/ui/Textarea";
 import { useFieldContext } from "@/hooks/form-context";
 
 type TextareaFieldProps = Omit<React.ComponentProps<typeof Textarea>, "value" | "onChange" | "onBlur" | "id"> & {

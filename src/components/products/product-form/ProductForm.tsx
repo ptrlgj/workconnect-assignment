@@ -4,11 +4,11 @@ import { useState } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowLeft02Icon, ArrowRight02Icon } from "@hugeicons/core-free-icons";
 
-import { Button } from "@/components/ui/button";
-import { AvailabilityStep } from "@/components/products/product-form/availability-step";
-import { BasicInfoStep } from "@/components/products/product-form/basic-info-step";
-import { PricingStep } from "@/components/products/product-form/pricing-step";
-import { Stepper } from "@/components/products/product-form/stepper";
+import { Button } from "@/components/ui/Button";
+import { AvailabilityStep } from "@/components/products/product-form/AvailabilityStep";
+import { BasicInfoStep } from "@/components/products/product-form/BasicInfoStep";
+import { PricingStep } from "@/components/products/product-form/PricingStep";
+import { Stepper } from "@/components/products/product-form/Stepper";
 import { useAppForm } from "@/hooks/form";
 import { productFormOptions } from "@/lib/product-form/form-options";
 import { productFormSchema, type ProductFormOutput } from "@/lib/product-form/schema";

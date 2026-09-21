@@ -1,4 +1,4 @@
-import { ProductsView } from "@/components/products/products-view";
+import { ProductsView } from "@/components/products/ProductsView";
 import { products } from "@/lib/products";
 
 export default function Home() {

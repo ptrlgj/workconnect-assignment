@@ -1,4 +1,4 @@
-import { AvailabilityBadge } from "@/components/products/availability-badge";
+import { AvailabilityBadge } from "@/components/products/AvailabilityBadge";
 import { formatPrice, formatStock } from "@/lib/format";
 import type { Product } from "@/lib/products";
 import { cn } from "@/lib/utils";

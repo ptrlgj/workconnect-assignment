@@ -2,19 +2,19 @@
 
 import { useId } from "react";
 
-import { Field, FieldLabel } from "@/components/ui/field";
-import { Switch } from "@/components/ui/switch";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { Field, FieldLabel } from "@/components/ui/Field";
 import { useFieldContext } from "@/hooks/form-context";
 import { cn } from "@/lib/utils";
 
-type SwitchFieldProps = { label: string; className?: string };
+type CheckboxFieldProps = { label: string; className?: string };
 
-export function SwitchField({ label, className }: SwitchFieldProps) {
+export function CheckboxField({ label, className }: CheckboxFieldProps) {
   const field = useFieldContext<boolean>();
   const id = useId();
   return (
     <Field orientation="horizontal" className={cn("gap-2", className)}>
-      <Switch
+      <Checkbox
         id={id}
         name={field.name}
         checked={field.state.value}

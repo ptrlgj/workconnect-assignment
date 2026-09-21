@@ -2,9 +2,9 @@
 
 import { Suspense, useState } from "react";
 
-import { AddProductDialog } from "@/components/products/add-product-dialog";
-import { ProductList } from "@/components/products/product-list";
-import { ProductListSkeleton } from "@/components/products/product-list-skeleton";
+import { AddProductDialog } from "@/components/products/AddProductDialog";
+import { ProductList } from "@/components/products/ProductList";
+import { ProductListSkeleton } from "@/components/products/ProductListSkeleton";
 import { formatProductCount } from "@/lib/format";
 import type { Product } from "@/lib/products";
 

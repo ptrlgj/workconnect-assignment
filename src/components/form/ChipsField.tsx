@@ -1,7 +1,7 @@
 "use client";
 
-import { FieldShell } from "@/components/form/field-shell";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { FieldShell } from "@/components/form/FieldShell";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/ToggleGroup";
 import { useFieldContext } from "@/hooks/form-context";
 
 type ChipsFieldProps<T extends string> = {
