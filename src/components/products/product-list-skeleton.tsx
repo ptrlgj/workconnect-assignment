@@ -39,7 +39,7 @@ export function ProductListSkeleton() {
             ))}
           </TableBody>
         </Table>
-        <FooterSkeleton className="border-t bg-muted px-4 py-4" />
+        <FooterSkeleton className="border-t bg-gray-50 px-4 py-4" />
       </div>
 
       <div className="flex flex-col gap-6 md:hidden">

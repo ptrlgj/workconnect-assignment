@@ -53,7 +53,7 @@ export function ProductForm({ onSubmit }: ProductFormProps) {
         {step.id === "availability" && <AvailabilityStep form={form} />}
       </div>
 
-      <footer className="flex items-center gap-2 border-t bg-muted p-4">
+      <footer className="flex items-center gap-2 border-t bg-neutral-50 p-4">
         {stepIndex > 0 && (
           <Button type="button" variant="outline" onClick={goBack}>
             <HugeiconsIcon icon={ArrowLeft02Icon} strokeWidth={2} data-icon="inline-start" />

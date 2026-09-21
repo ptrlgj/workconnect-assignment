@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 const STATUS = {
-  available: { label: "Dostępny", className: "bg-green-600/10 text-green-600" },
+  available: { label: "Dostępny", className: "bg-success-muted text-success" },
   unavailable: { label: "Niedostępny", className: "bg-destructive/10 text-destructive" },
 } as const;
 

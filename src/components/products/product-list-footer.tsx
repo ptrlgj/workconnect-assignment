@@ -14,7 +14,7 @@ import { serializeListParams } from "@/lib/product-list-params";
 import { cn } from "@/lib/utils";
 
 const layoutClass = {
-  inline: "flex items-center justify-between gap-4 border-t bg-muted px-4 py-4",
+  inline: "flex items-center justify-between gap-4 border-t bg-gray-50 px-4 py-4",
   stacked: "flex flex-col items-center gap-4 text-center",
 };
 

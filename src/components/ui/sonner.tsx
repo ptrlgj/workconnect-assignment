@@ -16,7 +16,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
       className="toaster group !font-sans"
       icons={{
         success: (
-          <CheckCircleSolidIcon className="size-5 text-green-600" />
+          <CheckCircleSolidIcon className="size-5 text-success" />
         ),
         info: (
           <HugeiconsIcon icon={InformationCircleIcon} strokeWidth={2} className="size-5" />
