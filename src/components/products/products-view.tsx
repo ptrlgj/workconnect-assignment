@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 import { AddProductDialog } from "@/components/products/add-product-dialog";
 import { ProductList } from "@/components/products/product-list";
+import { ProductListSkeleton } from "@/components/products/product-list-skeleton";
 import { formatProductCount } from "@/lib/format";
 import type { Product } from "@/lib/products";
 
@@ -24,7 +25,10 @@ export function ProductsView({ initialProducts }: ProductsViewProps) {
         <AddProductDialog onAdd={addProduct} />
       </header>
 
-      <ProductList products={products} />
+      {/* useSearchParams needs a Suspense boundary on a static route. */}
+      <Suspense fallback={<ProductListSkeleton />}>
+        <ProductList products={products} />
+      </Suspense>
     </>
   );
 }

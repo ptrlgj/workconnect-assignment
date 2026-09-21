@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import {
   Pagination,
   PaginationContent,
@@ -7,6 +10,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { formatProductCount } from "@/lib/format";
+import { serializeListParams } from "@/lib/product-list-params";
 import { cn } from "@/lib/utils";
 
 const layoutClass = {
@@ -34,14 +38,21 @@ export function ProductListFooter({
   onPageChange,
   layout = "inline",
 }: ProductListFooterProps) {
+  const pathname = usePathname();
   const isFirst = page <= 1;
   const isLast = page >= pageCount;
   const pages = Array.from({ length: pageCount }, (_, i) => i + 1);
+  const prevPage = Math.max(page - 1, 1);
+  const nextPage = Math.min(page + 1, pageCount);
 
-  const goTo = (target: number) => (event: React.MouseEvent) => {
-    event.preventDefault();
-    onPageChange(target);
-  };
+  // Real hrefs for copy-link / middle-click; click does a shallow nuqs update.
+  const pageLinkProps = (target: number) => ({
+    href: serializeListParams(pathname, { page: target }),
+    onClick: (event: React.MouseEvent) => {
+      event.preventDefault();
+      onPageChange(target);
+    },
+  });
 
   return (
     <div className={cn("text-xs text-muted-foreground", layoutClass[layout])}>
@@ -53,23 +64,21 @@ export function ProductListFooter({
         <PaginationContent className="gap-0.5">
           <PaginationItem>
             <PaginationPrevious
-              href="#"
+              {...pageLinkProps(prevPage)}
               text="Wstecz"
               size="sm"
               aria-disabled={isFirst}
               tabIndex={isFirst ? -1 : undefined}
               className={cn(linkClass, isFirst && disabledClass)}
-              onClick={goTo(page - 1)}
             />
           </PaginationItem>
           {pages.map((n) => (
             <PaginationItem key={n}>
               <PaginationLink
-                href="#"
+                {...pageLinkProps(n)}
                 size="icon-sm"
                 isActive={n === page}
                 className={cn(linkClass, n === page && activeClass)}
-                onClick={goTo(n)}
               >
                 {n}
               </PaginationLink>
@@ -77,13 +86,12 @@ export function ProductListFooter({
           ))}
           <PaginationItem>
             <PaginationNext
-              href="#"
+              {...pageLinkProps(nextPage)}
               text="Dalej"
               size="sm"
               aria-disabled={isLast}
               tabIndex={isLast ? -1 : undefined}
               className={cn(linkClass, isLast && disabledClass)}
-              onClick={goTo(page + 1)}
             />
           </PaginationItem>
         </PaginationContent>

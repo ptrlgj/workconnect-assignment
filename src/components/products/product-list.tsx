@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useQueryState } from "nuqs";
 import {
   Table,
   TableBody,
@@ -13,6 +13,7 @@ import { AvailabilityBadge } from "@/components/products/availability-badge";
 import { ProductCard } from "@/components/products/product-card";
 import { ProductListFooter } from "@/components/products/product-list-footer";
 import { formatPrice, formatStock } from "@/lib/format";
+import { clampPage, pageParser } from "@/lib/product-list-params";
 import type { Product } from "@/lib/products";
 
 const PAGE_SIZE = 5;
@@ -20,10 +21,11 @@ const PAGE_SIZE = 5;
 type ProductListProps = { products: Product[] };
 
 export function ProductList({ products }: ProductListProps) {
-  const [requestedPage, setPage] = useState(1);
+  const [requestedPage, setPage] = useQueryState("page", pageParser);
 
+  // Clamp per render; page count changes as products are added.
   const pageCount = Math.max(1, Math.ceil(products.length / PAGE_SIZE));
-  const page = Math.min(Math.max(requestedPage, 1), pageCount);
+  const page = clampPage(requestedPage, pageCount);
   const pageItems = products.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   const footerProps = { page, pageCount, totalItems: products.length, onPageChange: setPage };
