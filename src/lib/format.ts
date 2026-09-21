@@ -15,7 +15,7 @@ export function formatProductCount(count: number) {
 }
 
 export function formatPrice(minorUnits: number, currency: Product["currency"]) {
-  return new Intl.NumberFormat("pl-PL", { style: "currency", currency }).format(minorUnits / 100);
+  return new Intl.NumberFormat("pl-PL", { style: "currency", currency, currencyDisplay: "code" }).format(minorUnits / 100);
 }
 
 export function formatStock(stock: Product["stock"]) {
