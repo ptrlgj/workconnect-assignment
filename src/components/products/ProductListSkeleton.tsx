@@ -1,46 +1,34 @@
+import { ProductTable } from "@/components/products/ProductTable";
 import { Skeleton } from "@/components/ui/Skeleton";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/Table";
+import { TableCell, TableRow } from "@/components/ui/Table";
 import { cn } from "@/lib/utils";
 
 const ROWS = 5;
-const COLUMNS = 6;
+// name, SKU, category, price, badge, stock
+const CELL_SKELETONS = [
+  "h-4 w-4/5 rounded-md",
+  "h-3 w-3/5 rounded-md",
+  "h-4 w-1/2 rounded-md",
+  "h-4 w-2/3 rounded-md",
+  "h-5 w-20 rounded-full",
+  "h-4 w-1/4 rounded-md",
+];
 const range = (length: number) => Array.from({ length }, (_, i) => i);
 
 export function ProductListSkeleton() {
   return (
     <div role="status" aria-busy="true" aria-label="Ładowanie listy produktów">
-      <div className="hidden overflow-hidden rounded-lg border bg-card md:block">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              {range(COLUMNS).map((col) => (
-                <TableHead key={col}>
-                  <Skeleton className="h-3 w-1/2 rounded-md" />
-                </TableHead>
-              ))}
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {range(ROWS).map((row) => (
-              <TableRow key={row}>
-                {range(COLUMNS).map((col) => (
-                  <TableCell key={col}>
-                    <Skeleton className="h-4 w-3/4 rounded-md" />
-                  </TableCell>
-                ))}
-              </TableRow>
+      <ProductTable footer={<FooterSkeleton className="border-t bg-gray-50 px-4 py-4" />}>
+        {range(ROWS).map((row) => (
+          <TableRow key={row}>
+            {CELL_SKELETONS.map((className, col) => (
+              <TableCell key={col}>
+                <Skeleton className={className} />
+              </TableCell>
             ))}
-          </TableBody>
-        </Table>
-        <FooterSkeleton className="border-t bg-gray-50 px-4 py-4" />
-      </div>
+          </TableRow>
+        ))}
+      </ProductTable>
 
       <div className="flex flex-col gap-6 md:hidden">
         <ul className="flex flex-col gap-2">

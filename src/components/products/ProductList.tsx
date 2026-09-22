@@ -1,17 +1,11 @@
 "use client";
 
 import { useQueryState } from "nuqs";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/Table";
+import { TableCell, TableRow } from "@/components/ui/Table";
 import { AvailabilityBadge } from "@/components/products/AvailabilityBadge";
 import { ProductCard } from "@/components/products/ProductCard";
 import { ProductListFooter } from "@/components/products/ProductListFooter";
+import { ProductTable } from "@/components/products/ProductTable";
 import { formatPrice, formatStock } from "@/lib/format";
 import { clampPage, pageParser } from "@/lib/product-list-params";
 import type { Product } from "@/lib/products";
@@ -32,37 +26,24 @@ export function ProductList({ products }: ProductListProps) {
 
   return (
     <>
-      <div className="hidden overflow-hidden rounded-lg border bg-card md:block">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Nazwa</TableHead>
-              <TableHead>SKU</TableHead>
-              <TableHead>Kategoria</TableHead>
-              <TableHead>Cena Brutto</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Magazyn</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {pageItems.map((product) => (
-              <TableRow key={product.id}>
-                <TableCell className="font-medium">{product.name}</TableCell>
-                <TableCell className="text-muted-foreground text-xs">{product.sku}</TableCell>
-                <TableCell className="text-muted-foreground">{product.category}</TableCell>
-                <TableCell className="font-medium">
-                  {formatPrice(product.grossPrice, product.currency)}
-                </TableCell>
-                <TableCell>
-                  <AvailabilityBadge available={product.available} />
-                </TableCell>
-                <TableCell>{formatStock(product.stock)}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-        <ProductListFooter {...footerProps} />
-      </div>
+      <ProductTable footer={<ProductListFooter {...footerProps} />}>
+        {pageItems.map((product) => (
+          <TableRow key={product.id}>
+            <TableCell className="truncate font-medium" title={product.name}>
+              {product.name}
+            </TableCell>
+            <TableCell className="text-muted-foreground text-xs">{product.sku}</TableCell>
+            <TableCell className="text-muted-foreground">{product.category}</TableCell>
+            <TableCell className="font-medium">
+              {formatPrice(product.grossPrice, product.currency)}
+            </TableCell>
+            <TableCell>
+              <AvailabilityBadge available={product.available} />
+            </TableCell>
+            <TableCell>{formatStock(product.stock)}</TableCell>
+          </TableRow>
+        ))}
+      </ProductTable>
 
       <div className="flex flex-col gap-6 md:hidden">
         <ul className="flex flex-col gap-2">
