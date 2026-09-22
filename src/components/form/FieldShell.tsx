@@ -6,7 +6,6 @@ import { Field, FieldError, FieldLabel } from "@/components/ui/Field";
 import { useFieldContext } from "@/hooks/form-context";
 import { cn } from "@/lib/utils";
 
-// Errors surface only after the field was touched; "Dalej" touches the whole step via validateField.
 function useFieldErrors() {
   const { isTouched, errors } = useFieldContext().state.meta;
   const visible = isTouched && errors.length > 0;

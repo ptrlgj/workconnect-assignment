@@ -20,7 +20,6 @@ export function ChipsField<T extends string>({ label, options, fieldClassName }:
           multiple
           value={field.state.value}
           onValueChange={(value) => field.handleChange(value as T[])}
-          onBlur={field.handleBlur}
           aria-invalid={invalid}
           className="flex-wrap"
         >

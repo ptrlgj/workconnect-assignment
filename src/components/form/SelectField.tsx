@@ -33,7 +33,7 @@ export function SelectField<T extends string>({
           value={field.state.value === "" ? null : field.state.value}
           onValueChange={(value) => field.handleChange((value ?? "") as T | "")}
         >
-          <SelectTrigger id={id} size="sm" icon={icon} className="w-full" aria-invalid={invalid} onBlur={field.handleBlur}>
+          <SelectTrigger id={id} size="sm" icon={icon} className="w-full" aria-invalid={invalid}>
             <SelectValue placeholder={placeholder} />
           </SelectTrigger>
           <SelectContent>

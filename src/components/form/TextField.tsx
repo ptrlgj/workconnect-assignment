@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/Input";
 import { useFieldContext } from "@/hooks/form-context";
 import { cn } from "@/lib/utils";
 
-type TextFieldProps = Omit<React.ComponentProps<typeof Input>, "value" | "onChange" | "onBlur" | "id"> & {
+type TextFieldProps = Omit<React.ComponentProps<typeof Input>, "value" | "onChange" | "id"> & {
   label: string;
   fieldClassName?: string;
 };
@@ -20,7 +20,6 @@ export function TextField({ label, fieldClassName, className, ...props }: TextFi
           name={field.name}
           value={field.state.value}
           onChange={(event) => field.handleChange(event.target.value)}
-          onBlur={field.handleBlur}
           aria-invalid={invalid}
           className={cn("h-8", className)}
           {...props}

@@ -19,7 +19,6 @@ export function SwitchField({ label, className }: SwitchFieldProps) {
         name={field.name}
         checked={field.state.value}
         onCheckedChange={(checked) => field.handleChange(checked)}
-        onBlur={field.handleBlur}
       />
       <FieldLabel htmlFor={id}>{label}</FieldLabel>
     </Field>
