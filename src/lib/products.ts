@@ -23,7 +23,7 @@ export type Product = {
 export const products: Product[] = [
   {
     id: "1",
-    name: "MacBook Pro 14",
+    name: "MacBook Pro 14\"",
     sku: "MBP14M3PRO",
     description: "Laptop z układem M3 Pro, 18 GB RAM, 512 GB SSD.",
     manufacturer: "Apple",
@@ -122,22 +122,5 @@ export const products: Product[] = [
     stock: 12,
     minCartQty: 1,
     maxCartQty: 5,
-  },
-  {
-    id: "7",
-    name: "Logitech MX Master 3S",
-    sku: "LGMXM3SGR",
-    description: "Mysz bezprzewodowa, sensor 8000 DPI, ciche przyciski.",
-    manufacturer: "Logitech",
-    category: "Akcesoria",
-    features: ["Bluetooth", "USB-C", "Bezprzewodowy"],
-    netPrice: 40569,
-    grossPrice: 49900,
-    vatRate: "23",
-    currency: "PLN",
-    available: true,
-    stock: null,
-    minCartQty: 1,
-    maxCartQty: 10,
-  },
+  }
 ];

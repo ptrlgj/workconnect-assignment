@@ -20,7 +20,9 @@ export const PricingStep = withForm({
               form.setFieldValue("grossPrice", grossFromNet(value, form.getFieldValue("vatRate")), derivedWrite),
           }}
         >
-          {(field) => <field.TextField label="Cena netto" placeholder="0.00" inputMode="decimal" autoFocus />}
+          {(field) => (
+            <field.TextField label="Cena netto" type="number" min="0" step="0.01" placeholder="0.00" autoFocus />
+          )}
         </form.AppField>
         <form.AppField
           name="grossPrice"
@@ -29,13 +31,13 @@ export const PricingStep = withForm({
               form.setFieldValue("netPrice", netFromGross(value, form.getFieldValue("vatRate")), derivedWrite),
           }}
         >
-          {(field) => <field.TextField label="Cena brutto" placeholder="0.00" inputMode="decimal" />}
+          {(field) => <field.TextField label="Cena brutto" type="number" min="0" step="0.01" placeholder="0.00" />}
         </form.AppField>
         <form.AppField
           name="vatRate"
           listeners={{
             onChange: ({ value, fieldApi: { form } }) =>
-              form.setFieldValue("grossPrice", grossFromNet(form.getFieldValue("netPrice"), value), derivedWrite),
+              form.setFieldValue("netPrice", netFromGross(form.getFieldValue("grossPrice"), value), derivedWrite),
           }}
         >
           {(field) => (

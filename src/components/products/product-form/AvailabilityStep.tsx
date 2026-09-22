@@ -19,7 +19,7 @@ export const AvailabilityStep = withForm({
           name="limited"
           listeners={{
             onChange: ({ value, fieldApi }) => {
-              if (!value) fieldApi.form.setFieldValue("stockQuantity", "", { dontRunListeners: true });
+              if (!value) fieldApi.form.resetField("stockQuantity");
             },
           }}
         >
@@ -29,11 +29,13 @@ export const AvailabilityStep = withForm({
         <form.Subscribe selector={(state) => state.values.limited}>
           {(limited) =>
             limited && (
-              <form.AppField name="stockQuantity">
-                {(field) => (
-                  <field.TextField label="Ilość na magazynie" placeholder="np. 25" inputMode="numeric" autoFocus />
-                )}
-              </form.AppField>
+              <div className="grid gap-4 md:grid-cols-2">
+                <form.AppField name="stockQuantity">
+                  {(field) => (
+                    <field.TextField label="Ilość na magazynie" type="number" min="0" step="1" placeholder="np. 25" autoFocus />
+                  )}
+                </form.AppField>
+              </div>
             )
           }
         </form.Subscribe>
@@ -43,10 +45,10 @@ export const AvailabilityStep = withForm({
         <h3 className="text-base font-medium">Limity koszyka</h3>
         <div className="grid gap-4 md:grid-cols-2">
           <form.AppField name="minCartQty">
-            {(field) => <field.TextField label="Minimalna ilość" inputMode="numeric" />}
+            {(field) => <field.TextField label="Minimalna ilość" type="number" min="1" step="1" />}
           </form.AppField>
           <form.AppField name="maxCartQty">
-            {(field) => <field.TextField label="Maksymalna ilość" inputMode="numeric" />}
+            {(field) => <field.TextField label="Maksymalna ilość" type="number" min="1" step="1" />}
           </form.AppField>
         </div>
       </div>
